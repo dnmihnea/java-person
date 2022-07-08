@@ -12,27 +12,20 @@ public class Main {
 		Person dustin = new Person("Dustin", 22, "Retail Assistant");
 		Person amber = new Person("Amber", 39, "Architect");
 		Person kevin = new Person("Kevin", 41, "Lawyer");
+		Person person = new Person();
 		
-		List<Person> people = new ArrayList<>();
+		person.addPerson(john);
+		person.addPerson(claire);
+		person.addPerson(dustin);
+		person.addPerson(amber);
+		person.addPerson(kevin);
+		person.removePerson(john);
 		
-		people.add(john);
-		people.add(claire);
-		people.add(dustin);
-		people.add(amber);
-		people.add(kevin);
+		person.showList();
 		
-		boolean ok = false;
-		for(Person p: people) {
-			if (p.searchName("Kevin")) {
-				ok = true;
-			}
-			System.out.println(p);
-		}
-		if (ok) {
-			System.out.println("The person you are looking for is in this list.");
-		} else {
-			System.out.println("The person you are looking for isn't here.");
-		}
+		System.out.println(person.searchName("John"));
+
+		
 	}
 
 }

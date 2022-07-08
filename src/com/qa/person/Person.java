@@ -1,10 +1,14 @@
 package com.qa.person;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 
 	private String name;
 	private int age;
 	private String job;
+	private ArrayList<Person> people = new ArrayList<Person>();
 	
 	public Person () {
 	}
@@ -39,21 +43,45 @@ public class Person {
 		this.job = job;
 	}
 
+	
+	public ArrayList<Person> getPeople() {
+		return people;
+	}
+
+	public void setPeople(ArrayList<Person> people) {
+		this.people = people;
+	}
+	
+	public void addPerson(Person x) {
+		this.people.add(x);
+	}
+	
+	public void removePerson(Person x) {
+		this.people.remove(x);
+	}
+
 	@Override
 	public String toString() {
 		return "Person \n------ \n  Name: " + name + "\n   Age: " + age + "\n   Job: " + job + "\n";
 	}
+
 	
 	public boolean searchName(String x) {
 		
 		boolean tru = false;
 		
-		if (this.name.equals(x)) {
-			tru = true;
+		for( Person p: people) {
+			if (p.name.equals(x)) {
+				tru = true;
+			}
 		}
-		
-		return tru;
-		
+		return tru;	
+	}
+	
+	public void showList () {
+		for (Person p: people) {
+			System.out.println(p);
+	}
 	}
 	
 	
